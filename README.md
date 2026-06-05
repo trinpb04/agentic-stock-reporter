@@ -1,88 +1,106 @@
 # 🚀 Agentic Stock Reporter
 
-**Agentic Stock Reporter** là một hệ thống Trợ lý Trí tuệ Nhân tạo (AI Agent) mã nguồn mở, có khả năng tự động cào dữ liệu thị trường chứng khoán, phân tích và viết báo cáo chuyên nghiệp mỗi ngày. Hệ thống hỗ trợ đa thị trường (Việt Nam & Mỹ) và tự động bắn thông báo báo cáo thẳng về kênh Discord của bạn.
+**Agentic Stock Reporter** is an open-source AI Agent system capable of automatically scraping stock market data, analyzing it, and generating professional daily reports. It supports multi-market data (Vietnam & US) and automatically sends the report directly to your Discord channel via push notifications.
 
-Dự án này được thiết kế cực kỳ dễ sử dụng, phù hợp cho cả những người mới bắt đầu lập trình hoặc chưa có nhiều kinh nghiệm về AI.
-
----
-
-## ✨ Tính năng nổi bật
-- 🌐 **Đa thị trường (Multi-market)**: Lấy dữ liệu chứng khoán Việt Nam (VNIndex, CafeF) hoặc Mỹ (S&P 500, Yahoo Finance).
-- 🧠 **Tư duy AI sắc sảo**: Sử dụng `gemini-1.5-flash` và `gemini-2.5-flash` của Google để dịch thuật, tổng hợp và ép khuôn dữ liệu thành báo cáo hoàn chỉnh.
-- 💬 **Tích hợp Discord Webhook**: Chia nhỏ tin nhắn thông minh, bắn thẳng thông báo về điện thoại/máy tính của bạn ngay khi có báo cáo mới.
-- ⚡ **Tự động hóa 100%**: Đi kèm sẵn cấu hình GitHub Actions. Bạn không cần treo máy, GitHub sẽ tự động chạy code vào 17:15 chiều mỗi ngày hoàn toàn miễn phí.
+This project is designed to be extremely easy to use, making it suitable for both programming beginners and AI enthusiasts.
 
 ---
 
-## 📖 Hướng dẫn Cài đặt & Chạy trên máy tính (Cho người mới)
+## ✨ Features
+- 🌐 **Multi-market Support**: Fetches stock data for the Vietnam market (VNIndex, CafeF) and the US market (S&P 500, Yahoo Finance).
+- 🧠 **Agentic AI Brain**: Utilizes Google's `gemini-1.5-flash` and `gemini-2.5-flash` to analyze raw text, extract structured data (JSON), and write comprehensive markdown reports.
+- 💬 **Discord Webhook Integration**: Features smart message chunking to bypass Discord's 2000-character limit, pushing full reports directly to your phone or computer.
+- ⚡ **100% Automated**: Comes with a pre-configured GitHub Actions workflow. You don't need to leave your computer on; GitHub will run the agent automatically every day at 10:15 AM UTC (5:15 PM GMT+7) for free.
 
-Dưới đây là các bước để bạn "mang bộ code này về máy" và tự chạy một cách đơn giản nhất.
+---
 
-### Bước 1: Tải mã nguồn về máy (Clone)
-Mở Terminal (hoặc CMD/PowerShell trên Windows) và gõ lệnh sau để tải toàn bộ code từ GitHub về máy tính của bạn:
+## 📖 Getting Started (Local Setup)
+
+Follow these steps to clone the code and run it on your own machine.
+
+### Step 1: Clone the repository
+Open your Terminal (or CMD/PowerShell on Windows) and run the following command to download the code:
 ```bash
-git clone https://github.com/TEN_DANG_NHAP_CUA_BAN/agentic-stock-reporter.git
+git clone https://github.com/YOUR_USERNAME/agentic-stock-reporter.git
 cd agentic-stock-reporter
 ```
 
-### Bước 2: Cài đặt thư viện Python
-Đảm bảo máy bạn đã cài sẵn Python (Phiên bản từ 3.10 trở lên). Gõ lệnh sau để cài đặt các "phụ tùng" cần thiết:
+### Step 2: Install dependencies
+Make sure you have Python installed (version 3.10 or higher). Run the following command to install the required libraries:
 ```bash
 pip install -r requirements.txt
 ```
 
-### Bước 3: Cấu hình "Chìa khóa" (API Keys)
-Để hệ thống hoạt động, AI cần 2 thứ: Chìa khóa bộ não Gemini và Đường dẫn nhận tin nhắn Discord.
-* **Cách lấy Gemini API Key**: Truy cập [Google AI Studio](https://aistudio.google.com/), đăng nhập và tạo một API Key (Hoàn toàn miễn phí).
-* **Cách lấy Discord Webhook URL**: Vào kênh Discord của bạn $\rightarrow$ Edit Channel $\rightarrow$ Integrations $\rightarrow$ Webhooks $\rightarrow$ Copy Webhook URL.
+### Step 3: Set up your Discord Webhook
+To receive reports on Discord, you need a Webhook URL:
+1. Open Discord and go to your Server.
+2. Create or select a text channel (e.g., `#market-reports`).
+3. Click the **Edit Channel** gear icon next to the channel name.
+4. Go to **Integrations** $\rightarrow$ **Webhooks** $\rightarrow$ **New Webhook**.
+5. Name your bot (e.g., "Agentic Stock Reporter") and click **Copy Webhook URL**.
 
-Gán 2 khóa này vào máy tính của bạn bằng dòng lệnh:
-**Trên Windows (CMD):**
+### Step 4: Get your Gemini API Key
+1. Go to [Google AI Studio](https://aistudio.google.com/) and sign in with your Google account.
+2. Click on **Get API key** and create a new key (It's free).
+
+### Step 5: Configure Environment Variables
+You need to pass these two keys to your computer so the code can use them. Run the corresponding commands in your terminal:
+
+**On Windows (CMD):**
 ```cmd
-set GEMINI_API_KEY="Điền API Key của bạn vào đây"
-set DISCORD_WEBHOOK_URL="Điền link Webhook Discord của bạn vào đây"
+set GEMINI_API_KEY="Your_Gemini_API_Key"
+set DISCORD_WEBHOOK_URL="Your_Discord_Webhook_URL"
 ```
-**Trên Windows (PowerShell):**
+**On Windows (PowerShell):**
 ```powershell
-$env:GEMINI_API_KEY="Điền API Key của bạn vào đây"
-$env:DISCORD_WEBHOOK_URL="Điền link Webhook Discord của bạn vào đây"
+$env:GEMINI_API_KEY="Your_Gemini_API_Key"
+$env:DISCORD_WEBHOOK_URL="Your_Discord_Webhook_URL"
 ```
-**Trên Mac/Linux:**
+**On Mac/Linux:**
 ```bash
-export GEMINI_API_KEY="Điền API Key của bạn vào đây"
-export DISCORD_WEBHOOK_URL="Điền link Webhook Discord của bạn vào đây"
+export GEMINI_API_KEY="Your_Gemini_API_Key"
+export DISCORD_WEBHOOK_URL="Your_Discord_Webhook_URL"
 ```
 
-### Bước 4: Khởi chạy AI Agent
-Chạy lệnh sau để hệ thống bắt đầu thu thập dữ liệu và xuất báo cáo:
+### Step 6: Run the AI Agent
+Now, run the following command to start the data collection and report generation:
 
-- Phân tích thị trường **Việt Nam (Mặc định)**:
+- Analyze the **Vietnam Market (Default)**:
   ```bash
   python -m src.main
   ```
-- Phân tích thị trường **Mỹ (S&P 500)**:
+- Analyze the **US Market (S&P 500)**:
   ```bash
   python -m src.main --market US
   ```
 
-*Tada! Mở Discord lên và xem thành quả nhé! File báo cáo cũng sẽ được lưu trực tiếp vào thư mục `reports/` trên máy bạn.*
+*Tada! Check your Discord channel to see the result. The markdown report will also be saved locally in the `reports/` folder.*
 
 ---
 
-## 🤖 Hướng dẫn cấu hình Tự động hóa (GitHub Actions)
+## 🤖 Automating with GitHub Actions
 
-Bạn không muốn ngày nào cũng phải gõ lệnh? Hãy để GitHub tự động làm việc đó thay bạn!
+You don't want to run the command manually every day? Let GitHub do it for you automatically!
 
-1. Upload (Push) dự án này lên Repository GitHub của bạn.
-2. Trên giao diện GitHub của Repo đó, chuyển sang tab **Settings** $\rightarrow$ **Secrets and variables** $\rightarrow$ **Actions**.
-3. Bấm **New repository secret** và thêm lần lượt 2 Secret sau:
-   - Name: `GEMINI_API_KEY` | Secret: *Dán API Key của bạn vào*
-   - Name: `DISCORD_WEBHOOK_URL` | Secret: *Dán Webhook của bạn vào*
-4. Xong! Kể từ ngày mai, cứ vào lúc 17:15 chiều (Giờ Việt Nam) từ Thứ 2 đến Thứ 6, GitHub sẽ tự động gọi AI viết báo cáo và gửi vào Discord cho bạn.
+1. Push this project to your own GitHub Repository.
+2. Go to your GitHub Repository page.
+3. Click on the **Settings** tab at the top.
+4. In the left sidebar, scroll down and click on **Secrets and variables**, then select **Actions**.
+5. Click the green **New repository secret** button.
+6. Create the first secret:
+   - **Name**: `GEMINI_API_KEY`
+   - **Secret**: *Paste your Gemini API Key here*
+   - Click **Add secret**.
+7. Create the second secret:
+   - **Name**: `DISCORD_WEBHOOK_URL`
+   - **Secret**: *Paste your Discord Webhook URL here*
+   - Click **Add secret**.
 
-*(Mặc định khi đẩy lên GitHub, nó sẽ dùng `gemini-2.5-flash`. Nếu bạn muốn nâng cấp lên mô hình khác, bạn có thể tạo thêm một Secret có tên `GEMINI_MODEL` và điền tên model mong muốn).*
+**That's it!** The workflow is already configured in the `.github/workflows/daily_market_report.yml` file. From now on, every weekday (Monday to Friday) at 10:15 UTC, GitHub Actions will spin up a server, run the AI Agent, commit the new report back to the repository, and send the results to your Discord channel.
+
+*(Note: The workflow uses `gemini-2.5-flash` by default. If you want to use a different model, you can add a third secret named `GEMINI_MODEL` and set its value to your preferred model, like `gemini-1.5-flash`).*
 
 ---
 
-## ⚖️ Giấy phép (License)
-Dự án được phân phối dưới giấy phép **MIT License**. Bạn hoàn toàn có quyền sử dụng, sửa đổi và phân phối lại thoải mái. Xem chi tiết tại file `LICENSE`.
+## ⚖️ License
+This project is licensed under the **MIT License**. You are free to use, modify, and distribute it. See the `LICENSE` file for more details.
