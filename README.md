@@ -1,32 +1,30 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=200&section=header&text=Agentic%20Stock%20Reporter&fontSize=50&fontAlignY=38&desc=Autonomous%20AI%20Financial%20Analyst&descAlignY=51&descAlign=62&animation=twinkling" />
+  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%" />
 </p>
+
+<h1 align="center">🤖 Agentic Stock Reporter</h1>
 
 <p align="center">
   <a href="#"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=20&pause=1000&color=2799FF&center=true&vCenter=true&width=435&lines=Human-AI+Co-coding+Architecture;Zero-cost+Automated+Market+Reports;Multi-market:+VNIndex+%26+S%26P+500" alt="Typing SVG" /></a>
 </p>
 
----
-
 ## 🤖 Introduction
 
-**Agentic Stock Reporter** là một hệ thống AI Agent tự chủ, tối ưu chi phí (Zero-Cost) chuyên tự động hóa quy trình tổng hợp, phân tích và xuất bản báo cáo thị trường chứng khoán (Việt Nam & Mỹ S&P 500) hàng ngày. 
+**Agentic Stock Reporter** is an autonomous, zero-cost AI Agent system designed to automate the process of aggregating, analyzing, and publishing daily stock market reports (covering Vietnam & US S&P 500).
 
-Dự án này là sản phẩm của mô hình làm việc **Human-AI Co-coding**: 
-- 🧠 **Ý tưởng thiết kế, Kiến trúc hệ thống & Giám sát chất lượng:** Khởi xướng và tinh chỉnh bởi Con người (Product Owner).
-- 💻 **Thực thi, Lập trình & Sửa lỗi (Self-correction):** Triển khai bởi AI thông qua môi trường phát triển Google Antigravity.
-
-*(Scroll down for English setup instructions)*
+This project is the result of a **Human-AI Co-coding** workflow:
+- 🧠 **Design, Architecture & Quality Assurance:** Initiated and refined by a Human (Product Owner).
+- 💻 **Execution, Coding & Self-correction:** Implemented entirely by AI.
 
 ---
 
-## ✨ Tính năng cốt lõi (Key Features)
+## ✨ Key Features
 
-* 🌐 **Thu thập dữ liệu đa thị trường (Multi-market):** Tự động cào tin tức vĩ mô và dữ liệu kỹ thuật từ các nguồn trực tuyến tin cậy cho cả thị trường Việt Nam (CafeF RSS) và Mỹ (Yahoo Finance & `yfinance`).
-* 🧩 **Bộ não Agent trích xuất cấu trúc (Strict Schema Extraction):** Sử dụng tính năng *Structured Outputs* của `gemini-1.5-flash` và `gemini-2.5-flash` để ép dữ liệu thô lộn xộn vào khuôn mẫu `Pydantic JSON` chuẩn xác 100%, loại bỏ hoàn toàn hiện tượng AI trả lời lan man.
-* ✍️ **Biên tập báo cáo tự động (AI Writer Agent):** Chuyển đổi dữ liệu JSON khô khan thành một bản báo cáo tài chính bằng ngôn ngữ Markdown sắc sảo, văn phong chuyên nghiệp.
-* 🔔 **Cổng phát ngôn Discord (Discord Push Notification):** Tích hợp hệ thống tự động chia nhỏ tin nhắn (Chunking) để bắn báo cáo trực tiếp về kênh Discord cá nhân, giúp cập nhật thông tin mọi lúc mọi nơi trên điện thoại.
-* ☁️ **Tự động hóa hoàn toàn (CI/CD Automation):** Cấu hình chạy tự động vào 17:15 hàng ngày sau giờ đóng cửa thông qua GitHub Actions mà không tốn một đồng chi phí vận hành máy chủ.
+* 🌐 **Multi-market Data Collection:** Automatically scrapes macroeconomic news and technical data from reliable online sources for both the Vietnam market (CafeF RSS) and the US market (Yahoo Finance & `yfinance`).
+* 🧩 **Strict Schema Extraction:** Utilizes the *Structured Outputs* capability of `gemini-1.5-flash` and `gemini-2.5-flash` to parse messy raw data into a strict 100% accurate `Pydantic JSON` format, eliminating AI hallucinations.
+* ✍️ **AI Writer Agent:** Transforms dry JSON data into a sharp, professionally-toned financial report using Markdown syntax.
+* 🔔 **Discord Push Notification:** Features an intelligent message chunking system to bypass Discord API limits, delivering real-time market insights directly to your personal Discord channel.
+* ☁️ **100% CI/CD Automation:** Pre-configured with GitHub Actions to run automatically every weekday, costing absolutely zero dollars in server hosting.
 
 ---
 
@@ -114,5 +112,5 @@ You don't want to run the command manually every day? Let GitHub do it for you a
 This project is licensed under the **MIT License**. You are free to use, modify, and distribute it. See the `LICENSE` file for more details.
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=100&section=footer" />
+  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%" />
 </p>
