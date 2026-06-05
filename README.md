@@ -1,16 +1,32 @@
-# 🚀 Agentic Stock Reporter
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=200&section=header&text=Agentic%20Stock%20Reporter&fontSize=50&fontAlignY=38&desc=Autonomous%20AI%20Financial%20Analyst&descAlignY=51&descAlign=62&animation=twinkling" />
+</p>
 
-**Agentic Stock Reporter** is an open-source AI Agent system capable of automatically scraping stock market data, analyzing it, and generating professional daily reports. It supports multi-market data (Vietnam & US) and automatically sends the report directly to your Discord channel via push notifications.
-
-This project is designed to be extremely easy to use, making it suitable for both programming beginners and AI enthusiasts.
+<p align="center">
+  <a href="#"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=20&pause=1000&color=2799FF&center=true&vCenter=true&width=435&lines=Human-AI+Co-coding+Architecture;Zero-cost+Automated+Market+Reports;Multi-market:+VNIndex+%26+S%26P+500" alt="Typing SVG" /></a>
+</p>
 
 ---
 
-## ✨ Features
-- 🌐 **Multi-market Support**: Fetches stock data for the Vietnam market (VNIndex, CafeF) and the US market (S&P 500, Yahoo Finance).
-- 🧠 **Agentic AI Brain**: Utilizes Google's `gemini-1.5-flash` and `gemini-2.5-flash` to analyze raw text, extract structured data (JSON), and write comprehensive markdown reports.
-- 💬 **Discord Webhook Integration**: Features smart message chunking to bypass Discord's 2000-character limit, pushing full reports directly to your phone or computer.
-- ⚡ **100% Automated**: Comes with a pre-configured GitHub Actions workflow. You don't need to leave your computer on; GitHub will run the agent automatically every day at 10:15 AM UTC (5:15 PM GMT+7) for free.
+## 🤖 Introduction
+
+**Agentic Stock Reporter** là một hệ thống AI Agent tự chủ, tối ưu chi phí (Zero-Cost) chuyên tự động hóa quy trình tổng hợp, phân tích và xuất bản báo cáo thị trường chứng khoán (Việt Nam & Mỹ S&P 500) hàng ngày. 
+
+Dự án này là sản phẩm của mô hình làm việc **Human-AI Co-coding**: 
+- 🧠 **Ý tưởng thiết kế, Kiến trúc hệ thống & Giám sát chất lượng:** Khởi xướng và tinh chỉnh bởi Con người (Product Owner).
+- 💻 **Thực thi, Lập trình & Sửa lỗi (Self-correction):** Triển khai bởi AI thông qua môi trường phát triển Google Antigravity.
+
+*(Scroll down for English setup instructions)*
+
+---
+
+## ✨ Tính năng cốt lõi (Key Features)
+
+* 🌐 **Thu thập dữ liệu đa thị trường (Multi-market):** Tự động cào tin tức vĩ mô và dữ liệu kỹ thuật từ các nguồn trực tuyến tin cậy cho cả thị trường Việt Nam (CafeF RSS) và Mỹ (Yahoo Finance & `yfinance`).
+* 🧩 **Bộ não Agent trích xuất cấu trúc (Strict Schema Extraction):** Sử dụng tính năng *Structured Outputs* của `gemini-1.5-flash` và `gemini-2.5-flash` để ép dữ liệu thô lộn xộn vào khuôn mẫu `Pydantic JSON` chuẩn xác 100%, loại bỏ hoàn toàn hiện tượng AI trả lời lan man.
+* ✍️ **Biên tập báo cáo tự động (AI Writer Agent):** Chuyển đổi dữ liệu JSON khô khan thành một bản báo cáo tài chính bằng ngôn ngữ Markdown sắc sảo, văn phong chuyên nghiệp.
+* 🔔 **Cổng phát ngôn Discord (Discord Push Notification):** Tích hợp hệ thống tự động chia nhỏ tin nhắn (Chunking) để bắn báo cáo trực tiếp về kênh Discord cá nhân, giúp cập nhật thông tin mọi lúc mọi nơi trên điện thoại.
+* ☁️ **Tự động hóa hoàn toàn (CI/CD Automation):** Cấu hình chạy tự động vào 17:15 hàng ngày sau giờ đóng cửa thông qua GitHub Actions mà không tốn một đồng chi phí vận hành máy chủ.
 
 ---
 
@@ -36,15 +52,15 @@ To receive reports on Discord, you need a Webhook URL:
 1. Open Discord and go to your Server.
 2. Create or select a text channel (e.g., `#market-reports`).
 3. Click the **Edit Channel** gear icon next to the channel name.
-4. Go to **Integrations** $\rightarrow$ **Webhooks** $\rightarrow$ **New Webhook**.
-5. Name your bot (e.g., "Agentic Stock Reporter") and click **Copy Webhook URL**.
+4. Go to **Integrations** -> **Webhooks** -> **New Webhook**.
+5. Name your bot and click **Copy Webhook URL**.
 
 ### Step 4: Get your Gemini API Key
 1. Go to [Google AI Studio](https://aistudio.google.com/) and sign in with your Google account.
 2. Click on **Get API key** and create a new key (It's free).
 
 ### Step 5: Configure Environment Variables
-You need to pass these two keys to your computer so the code can use them. Run the corresponding commands in your terminal:
+Pass these two keys to your computer so the code can use them:
 
 **On Windows (CMD):**
 ```cmd
@@ -63,7 +79,7 @@ export DISCORD_WEBHOOK_URL="Your_Discord_Webhook_URL"
 ```
 
 ### Step 6: Run the AI Agent
-Now, run the following command to start the data collection and report generation:
+Start the data collection and report generation:
 
 - Analyze the **Vietnam Market (Default)**:
   ```bash
@@ -87,20 +103,16 @@ You don't want to run the command manually every day? Let GitHub do it for you a
 3. Click on the **Settings** tab at the top.
 4. In the left sidebar, scroll down and click on **Secrets and variables**, then select **Actions**.
 5. Click the green **New repository secret** button.
-6. Create the first secret:
-   - **Name**: `GEMINI_API_KEY`
-   - **Secret**: *Paste your Gemini API Key here*
-   - Click **Add secret**.
-7. Create the second secret:
-   - **Name**: `DISCORD_WEBHOOK_URL`
-   - **Secret**: *Paste your Discord Webhook URL here*
-   - Click **Add secret**.
-
-**That's it!** The workflow is already configured in the `.github/workflows/daily_market_report.yml` file. From now on, every weekday (Monday to Friday) at 10:15 UTC, GitHub Actions will spin up a server, run the AI Agent, commit the new report back to the repository, and send the results to your Discord channel.
-
-*(Note: The workflow uses `gemini-2.5-flash` by default. If you want to use a different model, you can add a third secret named `GEMINI_MODEL` and set its value to your preferred model, like `gemini-1.5-flash`).*
+6. Add the following secrets:
+   - Name: `GEMINI_API_KEY` | Secret: *Paste your Gemini API Key*
+   - Name: `DISCORD_WEBHOOK_URL` | Secret: *Paste your Discord Webhook URL*
+7. **That's it!** The workflow is already configured. Every weekday (Monday to Friday) at 10:15 UTC, GitHub Actions will run the AI Agent and send the results to your Discord channel.
 
 ---
 
 ## ⚖️ License
 This project is licensed under the **MIT License**. You are free to use, modify, and distribute it. See the `LICENSE` file for more details.
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=100&section=footer" />
+</p>
