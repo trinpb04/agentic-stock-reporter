@@ -1,0 +1,47 @@
+name: Automated Daily Market Report
+
+on:
+  schedule:
+    # Chạy vào lúc 10:15 UTC hàng ngày (tức 17:15 giờ Việt Nam, sau khi thị trường đóng cửa)
+    - cron: '15 10 * * 1-5' 
+  workflow_dispatch: # Cho phép bạn bấm nút chạy thủ công trên giao diện GitHub nếu muốn
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Khởi tạo và kéo code từ repository về máy ảo
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 2. Thiết lập môi trường Python
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip' # Tối ưu tốc độ cài đặt thư viện bằng cache
+
+    # 3. Cài đặt các thư viện cần thiết từ file requirements.txt
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # 4. Chạy AI Agent để cào dữ liệu và xuất báo cáo
+    - name: Run Agentic Stock Reporter
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }} # Lấy API Key từ kho bảo mật của GitHub
+        GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }} # Bạn có thể đổi lại thành 3.5 nếu tài khoản GitHub chạy được 3.5
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }} # Webhook để gửi báo cáo về Discord
+      run: |
+        python -m src.main
+
+    # 5. Tự động commit và push file báo cáo mới lên chính Repo GitHub này
+    - name: Commit and Push Report
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Bot"
+        git add reports/*.md raw_data.json
+        # Chỉ commit nếu thực sự có file báo cáo mới thay đổi
+        git diff --quiet && git diff --staged --quiet || (git commit -m "📝 Auto-generated market report [$(date +'%Y-%m-%d')]" && git push)

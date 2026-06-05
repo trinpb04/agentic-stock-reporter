@@ -1,0 +1,23 @@
+{
+    "news": [
+        "FPT cùng NVIDIA vừa công bố một đột phá, sắp có AI đầu tiên dành riêng cho Việt Nam: Bộ dữ liệu do FPT và NVIDIA phát triển nhằm hỗ trợ cộng đồng AI xây dựng các hệ thống trí tuệ nhân tạo phản ánh tốt hơn đặc điểm của người Việt.",
+        "Cổ phiếu Cao su Phước Hòa (PHR) được kỳ vọng vượt đỉnh lịch sử, động lực đến từ đâu?: CTCP Cao su Phước Hòa (PHR) đang được giới phân tích đánh giá tích cực khi sở hữu quỹ đất cao su quy mô lớn có tiềm năng chuyển đổi sang khu công nghiệp, trong bối cảnh nhu cầu đất công nghiệp tại Bình Dương (cũ) tiếp tục duy trì ở mức cao.",
+        "Phó Chủ tịch UBCKNN: Tài sản mã hóa đang dần trở thành trụ cột mới của kinh tế số: \"Trong bối cảnh Chính phủ đẩy mạnh phát triển thị trường tài chính số, Việt Nam đang đứng trước cơ hội lớn để thu hút dòng vốn quốc tế\".",
+        "Lãnh đạo Hòa Phát muốn bán 6,6 triệu cổ phiếu HPG giữa lúc thị giá về đáy từ đầu năm: Một lãnh đạo cấp cao của Tập đoàn Hòa Phát vừa đăng ký bán ra lượng lớn cổ phiếu HPG trong bối cảnh cổ phiếu thép đầu ngành này đang giao dịch ở vùng giá thấp nhất kể từ đầu năm.",
+        "Tiền vào chứng khoán thấp nhất 1 năm, cổ phiếu Vietjet gây bất ngờ: Việt Nam đứng trước cơ hội lớn thu hút dòng vốn quốc tế, khai mở các mô hình kinh doanh đột phá công nghệ tài chính."
+    ],
+    "top_stocks": [
+        {
+            "ticker": "SSI",
+            "event": "Khối ngoại mua ròng mạnh khớp lệnh kỷ lục, dòng tiền nhóm chứng khoán sôi động."
+        },
+        {
+            "ticker": "HPG",
+            "event": "Giá thép thế giới phục hồi kích thích lực cầu bắt đáy, khối lượng giao dịch tăng 150."
+        },
+        {
+            "ticker": "VCB",
+            "event": "Giữ nhịp chỉ số VN-Index vững vàng vững chắc ở vùng hỗ trợ nhờ dòng tiền nội nội khối."
+        }
+    ]
+}

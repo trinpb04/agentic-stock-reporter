@@ -1,0 +1,17 @@
+# Core AI
+google-genai>=0.8.0
+
+# Vietnam & US market data
+vnstock>=3.0.0
+yfinance>=0.2.40
+
+# Data processing
+pandas>=2.0.0
+
+# Web scraping / HTTP
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+
+# Environment variable management
+python-dotenv>=1.0.0
